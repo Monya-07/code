@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MySQL Command - Change Password</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    .command {
+      background-color: #f4f4f4;
+      padding: 15px;
+      font-family: monospace;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      white-space: pre-wrap;
+    }
+
+    .copy-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>MySQL Command to Change Password</h2>
+    <div id="command" class="command">
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Indala@2025';
+FLUSH PRIVILEGES;
+    </div>
+    <button class="copy-btn" onclick="copyText()">Copy Command</button>
+  </div>
+
+  <script>
+    function copyText() {
+      const command = document.getElementById("command").innerText;
+      navigator.clipboard.writeText(command).then(() => {
+        alert("Command copied to clipboard!");
+      }).catch(err => {
+        alert("Failed to copy: " + err);
+      });
+    }
+  </script>
+</body>
+</html>
